@@ -1,16 +1,15 @@
-# currency_charts
+# Currency conversion and charts (W.I.P.)
 
-A new Flutter project.
+##### *Simple cross-platform (Flutter) application that shows currency exchange rates, graphs, and bank information.*
+##### Source of data: [NapiArfolyam API](https://www.napiarfolyam.hu/napiapi)
 
-## Getting Started
+###### Flutter SDK version: 3.7.0
+###### Dart version: 2.19.0
 
-This project is a starting point for a Flutter application.
+###### Tech stack:
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Flutter
+- Dart
+- GetX package
+- Http package
+- Xml package
