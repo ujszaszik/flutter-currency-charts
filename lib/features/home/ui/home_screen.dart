@@ -1,7 +1,7 @@
 import 'package:currency_charts/features/home/controller/home_controller.dart';
 import 'package:currency_charts/features/home/ui/bank_dropdown.dart';
 import 'package:currency_charts/features/home/ui/currency_dropdown.dart';
-import 'package:currency_charts/features/rates/model/rates_query.dart';
+import 'package:currency_charts/features/userrates/query/user_rates_query.dart';
 import 'package:currency_charts/navigation/navigation_controller.dart';
 import 'package:currency_charts/resources/dimens.dart';
 import 'package:currency_charts/resources/strings.dart';
@@ -56,7 +56,7 @@ class HomeScreen extends GetView<HomeController> {
         child: const Text(Strings.labelShowCurrencyConverts));
   }
 
-  void _navigateToRates(RatesQuery query) {
+  void _navigateToRates(UserRatesQuery query) {
     Get.find<NavigationController>().showRatesFor(query);
   }
 }

@@ -1,6 +1,9 @@
 class Strings {
   static const appTitle = 'Árfolyamok';
 
+  // Default
+  static const emptyPageTitle = 'A lekérdezéshez nem tartozik adat!';
+
   // Common
   static const currencyValue = 'Deviza';
   static const forExValue = 'Valuta';
@@ -21,4 +24,7 @@ class Strings {
   static const ratesQueryTitle = 'Árfolyam lekérdezés';
   static const labelBankName = 'Bank neve';
   static const labelCurrencyName = 'Pénznem';
+
+  // Bank rates
+  static const bankRatesQueryTitle = 'Bank szerinti lekérdezés';
 }

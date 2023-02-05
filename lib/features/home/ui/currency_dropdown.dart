@@ -23,7 +23,7 @@ DropdownMenuItem _currencyDropdownRow(SelectorItemModel item) {
   return DropdownMenuItem(
       value: item.index,
       child: Row(children: [
-        const Icon(Icons.euro),
+        Image.asset(item.imageName, height: 25, width: 25),
         horizontalSpacer(),
         largeText(item.name)
       ]));

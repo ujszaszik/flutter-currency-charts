@@ -1,8 +1,8 @@
 import 'package:currency_charts/extension/enum_extensions.dart';
 import 'package:currency_charts/features/home/model/selector_item_model.dart';
-import 'package:currency_charts/features/rates/model/rates_query.dart';
-import 'package:currency_charts/model/bank.dart';
-import 'package:currency_charts/model/currency_type.dart';
+import 'package:currency_charts/features/userrates/query/user_rates_query.dart';
+import 'package:currency_charts/data/model/bank.dart';
+import 'package:currency_charts/data/model/currency_type.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
@@ -31,8 +31,8 @@ class HomeController extends GetxController {
     return Bank.values.map((bank) => bank.toMenuItem()).toList();
   }
 
-  RatesQuery buildRatesQuery() {
-    return RatesQuery(
+  UserRatesQuery buildRatesQuery() {
+    return UserRatesQuery(
         currencyType: CurrencyType.values.byIndex(currencySelection.value),
         bank: Bank.values.byIndex(bankSelection.value));
   }

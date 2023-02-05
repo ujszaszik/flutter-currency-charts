@@ -1,4 +1,5 @@
 import 'package:currency_charts/data/network/resource.dart';
+import 'package:currency_charts/ui/screen/empty_screen.dart';
 import 'package:currency_charts/ui/screen/error_screen.dart';
 import 'package:currency_charts/ui/screen/loading_screen.dart';
 import 'package:flutter/material.dart';
@@ -20,6 +21,8 @@ class ResourceAwareScreen<T> extends StatelessWidget {
           return const LoadingScreen();
         } else if (state.data is Error) {
           return ErrorScreen(message: (state.data as Error).message);
+        } else if (state.data is Empty) {
+          return const EmptyScreen();
         } else {
           return mainScreen((state.data as Success).data);
         }

@@ -8,6 +8,8 @@ class Resource<T extends dynamic> {
   factory Resource.error(String message) = Error;
 
   factory Resource.loading() = Loading;
+
+  factory Resource.empty() = Empty;
 }
 
 class Success<T> extends Resource<T> {
@@ -23,4 +25,8 @@ class Error<T> extends Resource<T> {
 
 class Loading<T> extends Resource<T> {
   Loading() : super._();
+}
+
+class Empty<T> extends Resource<T> {
+  Empty() : super._();
 }

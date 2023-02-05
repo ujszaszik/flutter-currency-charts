@@ -4,12 +4,6 @@ extension ShortName on Enum {
   }
 }
 
-extension EnumImage on Enum {
-  String imageName() {
-    return 'assets/${shortName().toLowerCase()}.png';
-  }
-}
-
 extension EnumByIndex<T extends Enum> on Iterable<T> {
   T byIndex(int index) {
     return firstWhere((element) => element.index == index);

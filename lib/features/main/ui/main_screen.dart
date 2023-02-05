@@ -1,3 +1,4 @@
+import 'package:currency_charts/features/banks/ui/banks_screen.dart';
 import 'package:currency_charts/features/home/ui/home_screen.dart';
 import 'package:currency_charts/features/main/controller/main_controller.dart';
 import 'package:currency_charts/navigation/bottom_navigation_bar.dart';
@@ -18,7 +19,7 @@ class MainScreen extends GetView<MainController> {
             appBar: AppBar(title: const Text(Strings.appTitle)),
             body: IndexedStack(
               index: controller.selectedIndex.value,
-              children: const [HomeScreen(), HomeScreen(), HomeScreen()],
+              children: const [HomeScreen(), HomeScreen(), BanksScreen()],
             ),
             bottomNavigationBar: bottomNavigationBar(
                 (selection) => controller.updateSelectionIndex(selection),
