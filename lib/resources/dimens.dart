@@ -4,7 +4,7 @@ class Dimens {
   static const double defaultPadding = 8;
   static const double doublePadding = 16;
 
-  // Sizes
+  // Texts
   static const double textSizeM = 16;
   static const double textSizeL = 18;
 }

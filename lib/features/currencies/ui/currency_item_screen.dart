@@ -1,5 +1,7 @@
 import 'package:currency_charts/data/model/currency_type.dart';
 import 'package:currency_charts/resources/dimens.dart';
+import 'package:currency_charts/resources/sizes.dart';
+import 'package:currency_charts/ui/image/image_asset.dart';
 import 'package:currency_charts/ui/spacing/spacings.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +15,9 @@ Widget currencyItemScreen(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Image.asset(currency.imageName(), width: 32, height: 32),
+              imageAsset(
+                  name: currency.imageName(),
+                  size: Sizes.currencyItemImageSize),
               horizontalSpacer(),
               Text(currency.name, style: const TextStyle(fontSize: 16))
             ],

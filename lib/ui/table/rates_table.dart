@@ -1,6 +1,8 @@
 import 'package:currency_charts/extension/string_extensions.dart';
 import 'package:currency_charts/resources/dimens.dart';
+import 'package:currency_charts/resources/sizes.dart';
 import 'package:currency_charts/resources/strings.dart';
+import 'package:currency_charts/ui/image/image_asset.dart';
 import 'package:currency_charts/ui/table/rates_source.dart';
 import 'package:flutter/material.dart';
 
@@ -24,7 +26,7 @@ Widget ratesTable(RatesSource source) {
 
 TableRow _ratesHeaderRow(String headerImageName) {
   return TableRow(children: [
-    _currencyCell(headerImageName),
+    _imageHeaderCell(headerImageName),
     _ratesCell(Strings.buyLabel),
     _ratesCell(Strings.sellLabel),
   ]);
@@ -44,8 +46,10 @@ Container _ratesCell(dynamic value) {
       ]));
 }
 
-Container _currencyCell(String imageName) {
+Container _imageHeaderCell(String imageName) {
   return Container(
       padding: const EdgeInsets.all(Dimens.defaultPadding),
-      child: Column(children: [Image.asset(imageName, width: 25, height: 25)]));
+      child: Column(children: [
+        imageAsset(name: imageName, size: Sizes.tableCellHeaderImageSize)
+      ]));
 }
