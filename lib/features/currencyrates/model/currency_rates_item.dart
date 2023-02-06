@@ -1,15 +1,15 @@
-import 'package:currency_charts/data/model/currency_type.dart';
+import 'package:currency_charts/data/model/bank.dart';
 import 'package:currency_charts/ui/table/rates_source.dart';
 
-class BanksCurrencyItem extends RatesSource {
-  final CurrencyType type;
+class CurrencyRatesItem extends RatesSource {
+  final Bank bankType;
   final double sellCurrency;
   final double buyCurrency;
   final double sellForEx;
   final double buyForEx;
 
-  BanksCurrencyItem(
-      {required this.type,
+  CurrencyRatesItem(
+      {required this.bankType,
       required this.sellCurrency,
       required this.buyCurrency,
       required this.sellForEx,
@@ -17,7 +17,7 @@ class BanksCurrencyItem extends RatesSource {
 
   @override
   String headerImageName() {
-    return type.imageName();
+    return bankType.imageName();
   }
 
   @override

@@ -1,7 +1,7 @@
 import 'package:currency_charts/extension/enum_extensions.dart';
 import 'package:currency_charts/features/home/model/selector_item_model.dart';
 
-enum Bank {
+enum Bank implements Comparable<Bank> {
   CIB("CIB Bank"),
   COMMERZ("Commerzbank"),
   ERSTE("Erste Bank"),
@@ -20,6 +20,11 @@ enum Bank {
   const Bank(this.name);
 
   final String name;
+
+  @override
+  int compareTo(Bank other) {
+    return name.compareTo(other.name);
+  }
 }
 
 extension BankImageName on Bank {

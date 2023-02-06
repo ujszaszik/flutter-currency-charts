@@ -1,4 +1,3 @@
-import 'package:currency_charts/data/model/bank.dart';
 import 'package:currency_charts/data/model/currency_type.dart';
 import 'package:currency_charts/extension/enum_extensions.dart';
 import 'package:currency_charts/features/userrates/model/user_rates_item.dart';
@@ -11,15 +10,11 @@ class UserRatesModel extends RatesSource {
   UserRatesModel({required this.currencyModel, required this.exchangeModel});
 
   @override
-  Bank bank() {
-    return Bank.values.firstWhere(
-        (element) => element.shortName().toUpperCase() == currencyModel.bank);
-  }
-
-  @override
-  CurrencyType currency() {
-    return CurrencyType.values.firstWhere((element) =>
-        element.shortName().toUpperCase() == currencyModel.currency);
+  String headerImageName() {
+    return CurrencyType.values
+        .firstWhere((element) =>
+            element.shortName().toUpperCase() == currencyModel.currency)
+        .imageName();
   }
 
   @override

@@ -12,18 +12,22 @@ class Strings {
 
   // Menu
   static const menuMain = 'Főoldal';
-  static const menuChart = 'Grafikon';
   static const menuBank = 'Bankok';
+  static const menuCurrency = 'Pénznemek';
+  static const menuChart = 'Grafikon';
 
   // Home
   static const currencySelectionTitle = 'Válassz pénznemet!';
   static const bankSelectionTitle = 'Válassz bankot!';
   static const labelShowCurrencyConverts = 'Mutasd az árfolyamokat!';
 
-  // Rates
+  // User Rates
   static const ratesQueryTitle = 'Árfolyam lekérdezés';
   static const labelBankName = 'Bank neve';
   static const labelCurrencyName = 'Pénznem';
+
+  // Currency Rates
+  static const currencyRatesQueryTitle = 'Pénznem szerinti lekérdezés';
 
   // Bank rates
   static const bankRatesQueryTitle = 'Bank szerinti lekérdezés';

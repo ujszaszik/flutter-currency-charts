@@ -2,12 +2,16 @@ import 'package:currency_charts/features/bankrates/bindings/bankrates_bindings.d
 import 'package:currency_charts/features/bankrates/ui/bank_rates_screen.dart';
 import 'package:currency_charts/features/banks/bindings/banks_bindings.dart';
 import 'package:currency_charts/features/banks/ui/banks_screen.dart';
+import 'package:currency_charts/features/currencies/bindings/currencies_bindings.dart';
+import 'package:currency_charts/features/currencies/ui/currencies_screen.dart';
+import 'package:currency_charts/features/currencyrates/bindings/currency_rates_bindings.dart';
+import 'package:currency_charts/features/currencyrates/ui/currency_rates_screen.dart';
 import 'package:currency_charts/features/home/binding/home_bindings.dart';
 import 'package:currency_charts/features/home/ui/home_screen.dart';
 import 'package:currency_charts/features/main/binding/main_bindings.dart';
 import 'package:currency_charts/features/main/ui/main_screen.dart';
 import 'package:currency_charts/features/userrates/binding/user_rates_bindings.dart';
-import 'package:currency_charts/features/userrates/ui/rates_screen.dart';
+import 'package:currency_charts/features/userrates/ui/user_rates_screen.dart';
 import 'package:get/get.dart';
 
 class Routes {
@@ -22,9 +26,17 @@ class Routes {
           page: () => const HomeScreen(),
           binding: HomeBindings()),
       GetPage(
-          name: RatesScreen.route,
-          page: () => const RatesScreen(),
+          name: UserRatesScreen.route,
+          page: () => const UserRatesScreen(),
           binding: UserRatesBindings()),
+      GetPage(
+          name: CurrenciesScreen.route,
+          page: () => const CurrenciesScreen(),
+          binding: CurrenciesBindings()),
+      GetPage(
+          name: CurrencyRatesScreen.route,
+          page: () => const CurrencyRatesScreen(),
+          binding: CurrencyRatesBindings()),
       GetPage(
           name: BanksScreen.route,
           page: () => const BanksScreen(),

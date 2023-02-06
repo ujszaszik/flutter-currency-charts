@@ -4,11 +4,11 @@ import 'package:currency_charts/extension/enum_extensions.dart';
 import 'package:currency_charts/features/userrates/query/user_rates_query.dart';
 import 'package:http/http.dart' as http;
 
-abstract class IRatesService extends BaseService {
+abstract class IUserRatesService extends BaseService {
   Future<http.Response> getConversionRatesFor(UserRatesQuery query);
 }
 
-class RatesService extends IRatesService {
+class UserRatesService extends IUserRatesService {
   @override
   Future<http.Response> getConversionRatesFor(UserRatesQuery query) {
     return GetRequest.from(baseUrl)

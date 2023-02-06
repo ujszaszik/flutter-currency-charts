@@ -6,18 +6,18 @@ import 'package:currency_charts/ui/spacing/spacings.dart';
 import 'package:currency_charts/ui/text/texts.dart';
 import 'package:flutter/material.dart';
 
-Widget ratesHeader(UserRatesQuery query) {
+Widget userRatesHeader(UserRatesQuery query) {
   return SpacedColumn(
       mainAxisAlignment: MainAxisAlignment.center,
       spacing: Dimens.defaultPadding,
       elements: [
         horizontalSpacer(),
-        _ratesHeaderItem(Strings.labelBankName, query.bank.name),
-        _ratesHeaderItem(Strings.labelCurrencyName, query.currencyType.name)
+        _userRatesHeaderItem(Strings.labelBankName, query.bank.name),
+        _userRatesHeaderItem(Strings.labelCurrencyName, query.currencyType.name)
       ]);
 }
 
-Widget _ratesHeaderItem(String key, dynamic value) {
+Widget _userRatesHeaderItem(String key, dynamic value) {
   return Padding(
       padding: const EdgeInsets.all(Dimens.doublePadding),
       child: Column(

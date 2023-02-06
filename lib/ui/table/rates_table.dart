@@ -1,5 +1,4 @@
 import 'package:currency_charts/extension/string_extensions.dart';
-import 'package:currency_charts/data/model/currency_type.dart';
 import 'package:currency_charts/resources/dimens.dart';
 import 'package:currency_charts/resources/strings.dart';
 import 'package:currency_charts/ui/table/rates_source.dart';
@@ -14,7 +13,7 @@ Widget ratesTable(RatesSource source) {
       border: TableBorder.all(
           color: Colors.grey, style: BorderStyle.solid, width: 1),
       children: [
-        _ratesHeaderRow(source.currency()),
+        _ratesHeaderRow(source.headerImageName()),
         _ratesDataRow(
             Strings.currencyValue, source.currencyBuy(), source.currencySell()),
         _ratesDataRow(Strings.forExValue, source.forExBuy(), source.forExSell())
@@ -23,9 +22,9 @@ Widget ratesTable(RatesSource source) {
   ));
 }
 
-TableRow _ratesHeaderRow(CurrencyType currencyType) {
+TableRow _ratesHeaderRow(String headerImageName) {
   return TableRow(children: [
-    _currencyCell(currencyType),
+    _currencyCell(headerImageName),
     _ratesCell(Strings.buyLabel),
     _ratesCell(Strings.sellLabel),
   ]);
@@ -45,10 +44,8 @@ Container _ratesCell(dynamic value) {
       ]));
 }
 
-Container _currencyCell(CurrencyType currency) {
+Container _currencyCell(String imageName) {
   return Container(
       padding: const EdgeInsets.all(Dimens.defaultPadding),
-      child: Column(children: [
-        Image.asset(currency.imageName(), width: 25, height: 25)
-      ]));
+      child: Column(children: [Image.asset(imageName, width: 25, height: 25)]));
 }

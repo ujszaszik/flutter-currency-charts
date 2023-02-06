@@ -18,12 +18,16 @@ Widget bottomNavigationBar(Function(int) onTap, int currentIndex) {
           label: Strings.menuMain,
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.area_chart),
-          label: Strings.menuChart,
+          icon: Icon(Icons.currency_exchange),
+          label: Strings.menuCurrency,
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.money),
           label: Strings.menuBank,
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.area_chart),
+          label: Strings.menuChart,
         ),
       ]);
 }
