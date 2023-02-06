@@ -1,4 +1,5 @@
 import 'package:currency_charts/features/banks/ui/banks_screen.dart';
+import 'package:currency_charts/features/charts/ui/charts_screen.dart';
 import 'package:currency_charts/features/currencies/ui/currencies_screen.dart';
 import 'package:currency_charts/features/home/ui/home_screen.dart';
 import 'package:currency_charts/features/main/controller/main_controller.dart';
@@ -24,7 +25,7 @@ class MainScreen extends GetView<MainController> {
                 HomeScreen(),
                 CurrenciesScreen(),
                 BanksScreen(),
-                HomeScreen()
+                ChartsScreen()
               ],
             ),
             bottomNavigationBar: bottomNavigationBar(
