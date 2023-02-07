@@ -2,6 +2,8 @@ import 'package:currency_charts/features/bankrates/bindings/bankrates_bindings.d
 import 'package:currency_charts/features/bankrates/ui/bank_rates_screen.dart';
 import 'package:currency_charts/features/banks/bindings/banks_bindings.dart';
 import 'package:currency_charts/features/banks/ui/banks_screen.dart';
+import 'package:currency_charts/features/chartrates/bindings/chart_rates_bindings.dart';
+import 'package:currency_charts/features/chartrates/ui/chart_rates_screen.dart';
 import 'package:currency_charts/features/charts/bindings/charts_bindings.dart';
 import 'package:currency_charts/features/charts/ui/charts_screen.dart';
 import 'package:currency_charts/features/currencies/bindings/currencies_bindings.dart';
@@ -50,7 +52,11 @@ class Routes {
       GetPage(
           name: ChartsScreen.route,
           page: () => const ChartsScreen(),
-          binding: ChartsBindings())
+          binding: ChartsBindings()),
+      GetPage(
+          name: ChartRatesScreen.route,
+          page: () => const ChartRatesScreen(),
+          binding: ChartRatesBindings())
     ];
   }
 }

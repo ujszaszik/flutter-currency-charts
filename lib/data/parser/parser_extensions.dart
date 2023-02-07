@@ -10,6 +10,7 @@ const String dateTag = 'datum';
 const String unitTag = 'penznem';
 const String buyTag = 'vetel';
 const String sellTag = 'eladas';
+const String meanTag = 'kozep';
 
 extension CurrencyElement on XmlDocument {
   Iterable<XmlElement> currencyElements() {
@@ -65,5 +66,11 @@ extension BuyPrice on XmlElement {
 extension SellPrice on XmlElement {
   double sell() {
     return double.parse(findElements(sellTag).first.text);
+  }
+}
+
+extension MeanPrice on XmlElement {
+  double mean() {
+    return double.parse(findElements(meanTag).first.text);
   }
 }

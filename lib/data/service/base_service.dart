@@ -3,4 +3,6 @@ abstract class BaseService {
 
   final bankKey = 'bank';
   final currencyKey = 'valuta';
+  final dateStartKey = 'datum';
+  final dateEndKey = 'datumend';
 }

@@ -31,4 +31,7 @@ class Strings {
 
   // Bank rates
   static const bankRatesQueryTitle = 'Bank szerinti lekérdezés';
+
+  // Chart Rates
+  static const chartRatesQueryTitle = 'MNB középárfolyamok';
 }

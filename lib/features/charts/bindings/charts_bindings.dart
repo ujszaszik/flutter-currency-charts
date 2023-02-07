@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 class ChartsBindings extends Bindings {
   @override
   void dependencies() {
-    // Controller
     Get.lazyPut(() => ChartsController());
   }
 }
