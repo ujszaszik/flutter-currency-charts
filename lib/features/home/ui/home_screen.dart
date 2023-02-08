@@ -1,6 +1,6 @@
 import 'package:currency_charts/features/home/controller/home_controller.dart';
-import 'package:currency_charts/features/home/ui/bank_dropdown.dart';
-import 'package:currency_charts/features/home/ui/currency_dropdown.dart';
+import 'package:currency_charts/ui/dropdown/bank_dropdown.dart';
+import 'package:currency_charts/ui/dropdown/currency_dropdown.dart';
 import 'package:currency_charts/features/userrates/query/user_rates_query.dart';
 import 'package:currency_charts/navigation/navigation_controller.dart';
 import 'package:currency_charts/resources/dimens.dart';

@@ -11,7 +11,7 @@ enum DateInterval {
   const DateInterval(this.amount);
 
   DateRange getActualRange() {
-    return DateRange.fromWeekInterval(amount);
+    return DateRange.fromWeekInterval(this);
   }
 
   String text() {

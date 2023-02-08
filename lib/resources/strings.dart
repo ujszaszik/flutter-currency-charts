@@ -34,4 +34,5 @@ class Strings {
 
   // Chart Rates
   static const chartRatesQueryTitle = 'MNB középárfolyamok';
+  static const labelShowChartRates = 'Mutasd a grafikont!';
 }

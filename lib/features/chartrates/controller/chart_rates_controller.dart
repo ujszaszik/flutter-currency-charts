@@ -1,8 +1,10 @@
-import 'package:currency_charts/data/model/currency_type.dart';
 import 'package:currency_charts/data/network/resource.dart';
 import 'package:currency_charts/features/chartrates/model/charts_data.dart';
 import 'package:currency_charts/features/chartrates/query/chart_rates_query.dart';
 import 'package:currency_charts/features/chartrates/repository/chart_rates_repository.dart';
+import 'package:currency_charts/util/date/date_interval.dart';
+import 'package:currency_charts/util/date/date_range.dart';
+import 'package:currency_charts/util/date/date_range_format.dart';
 import 'package:get/get.dart';
 
 class ChartRatesController extends GetxController {
@@ -10,14 +12,22 @@ class ChartRatesController extends GetxController {
 
   ChartRatesController({required this.repository});
 
-  AwaitSource<ChartsItems> getChartItems() {
-    return repository.getChartRatesFor(_testQuery());
+  late ChartRatesQuery _currentQuery;
+  final chartItems = const AwaitSource<ChartsItems>.empty().obs;
+
+  getChartItems(ChartRatesQuery query) {
+    _currentQuery = query;
+    chartItems(repository.getChartRatesFor(query));
+    update();
   }
 
-  ChartRatesQuery _testQuery() {
-    return ChartRatesQuery(
-        currencyType: CurrencyType.EUR,
-        startDate: '20230115',
-        endDate: '20230118');
+  updateItems(DateInterval interval) {
+    final range = DateRange.fromWeekInterval(interval);
+    final formattedRange = formatRange(range);
+    final query = ChartRatesQuery(
+        currencyType: _currentQuery.currencyType,
+        startDate: formattedRange.first,
+        endDate: formattedRange.second);
+    getChartItems(query);
   }
 }
