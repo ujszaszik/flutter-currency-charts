@@ -1,5 +1,3 @@
-typedef ChartsItems = List<ChartsData>;
-
 class ChartsData {
   final String date;
   final double value;

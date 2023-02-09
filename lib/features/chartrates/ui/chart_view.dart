@@ -1,6 +1,7 @@
 import 'package:collection/collection.dart';
 import 'package:currency_charts/features/chartrates/model/chart_data_extensions.dart';
 import 'package:currency_charts/features/chartrates/model/charts_data.dart';
+import 'package:currency_charts/features/chartrates/model/charts_items.dart';
 import 'package:currency_charts/resources/colorings.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +16,7 @@ LineChartData chartView(ChartsItems data) {
     maxX: data.size() - 1,
     minY: data.min() - _getOptimalRounding(data.min(), data.max()),
     maxY: data.max() + _getOptimalRounding(data.min(), data.max()),
-    lineBarsData: [_chartBarData(data)],
+    lineBarsData: [_chartBarData(data.items)],
   );
 }
 

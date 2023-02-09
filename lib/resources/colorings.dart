@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Colorings {
-  static const chartGradientStart = Color(0xFF2196F3);
-  static const chartGradientEnd = Color(0xFF50E4FF);
+  static const chartGradientStart = Colors.blueGrey;
+  static const chartGradientEnd = Colors.blueGrey;
 
   static Color chartTween =
       ColorTween(begin: chartGradientStart, end: chartGradientEnd)

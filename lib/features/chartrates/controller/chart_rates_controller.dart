@@ -1,5 +1,5 @@
 import 'package:currency_charts/data/network/resource.dart';
-import 'package:currency_charts/features/chartrates/model/charts_data.dart';
+import 'package:currency_charts/features/chartrates/model/charts_items.dart';
 import 'package:currency_charts/features/chartrates/query/chart_rates_query.dart';
 import 'package:currency_charts/features/chartrates/repository/chart_rates_repository.dart';
 import 'package:currency_charts/util/date/date_interval.dart';
@@ -13,6 +13,7 @@ class ChartRatesController extends GetxController {
   ChartRatesController({required this.repository});
 
   late ChartRatesQuery _currentQuery;
+  final selectedIndex = DateInterval.oneWeek.index.obs;
   final chartItems = const AwaitSource<ChartsItems>.empty().obs;
 
   getChartItems(ChartRatesQuery query) {
@@ -29,5 +30,11 @@ class ChartRatesController extends GetxController {
         startDate: formattedRange.first,
         endDate: formattedRange.second);
     getChartItems(query);
+    _updateInterval(interval);
+  }
+
+  _updateInterval(DateInterval interval) {
+    selectedIndex(interval.index);
+    update();
   }
 }
