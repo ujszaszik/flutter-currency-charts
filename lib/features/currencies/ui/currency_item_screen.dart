@@ -1,7 +1,9 @@
 import 'package:currency_charts/data/model/currency_type.dart';
 import 'package:currency_charts/resources/dimens.dart';
 import 'package:currency_charts/resources/sizes.dart';
+import 'package:currency_charts/ui/container/decorated_container.dart';
 import 'package:currency_charts/ui/image/image_asset.dart';
+import 'package:currency_charts/ui/padding/padding_containers.dart';
 import 'package:currency_charts/ui/spacing/spacings.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +13,9 @@ Widget currencyItemScreen(
       onTap: () => onClick(currency),
       child: Padding(
           padding: const EdgeInsets.all(Dimens.defaultPadding),
-          child: Row(
+          child: decoratedContainer(
+              child: DefaultPadding(
+                  child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -19,7 +23,8 @@ Widget currencyItemScreen(
                   name: currency.imageName(),
                   size: Sizes.currencyItemImageSize),
               horizontalSpacer(),
-              Text(currency.name, style: const TextStyle(fontSize: 16))
+              Text(currency.name,
+                  style: const TextStyle(fontSize: Dimens.textSizeM))
             ],
-          )));
+          )))));
 }
