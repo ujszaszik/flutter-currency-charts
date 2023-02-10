@@ -1,3 +1,4 @@
+import 'package:currency_charts/data/exception/empty_content_exception.dart';
 import 'package:currency_charts/data/model/currency_type.dart';
 import 'package:currency_charts/data/parser/parser_extensions.dart';
 import 'package:currency_charts/data/parser/xml_parser.dart';
@@ -15,6 +16,10 @@ class ChartRatesParser
         .map((element) =>
             ChartsData(date: element.date(), value: element.mean()))
         .toList();
-    return ChartsItems(items: items, currencyType: parameter);
+    if (items.isNotEmpty) {
+      return ChartsItems(items: items, currencyType: parameter);
+    } else {
+      throw EmptyContentException();
+    }
   }
 }

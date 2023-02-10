@@ -1,3 +1,4 @@
+import 'package:currency_charts/data/model/currency_type.dart';
 import 'package:currency_charts/data/network/network_call.dart';
 import 'package:currency_charts/data/network/resource.dart';
 import 'package:currency_charts/features/chartrates/model/charts_items.dart';
@@ -17,8 +18,17 @@ class ChartRatesRepository extends IChartRatesRepository {
 
   @override
   AwaitSource<ChartsItems> getChartRatesFor(ChartRatesQuery query) {
+    _stuff();
     return networkCall(
         remoteCall: service.getChartDataInRange(query),
         mapper: (rawXml) => parser.parse(rawXml, query.currencyType));
+  }
+
+  _stuff() async {
+    final x = await service.getChartDataInRange(ChartRatesQuery(
+        currencyType: CurrencyType.HRK,
+        startDate: '20220114',
+        endDate: '20220126'));
+    print(x.body);
   }
 }
