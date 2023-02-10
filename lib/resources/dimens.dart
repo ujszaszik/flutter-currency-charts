@@ -3,6 +3,7 @@ class Dimens {
   static const double halfPadding = 4;
   static const double defaultPadding = 8;
   static const double doublePadding = 16;
+  static const double largePadding = 32;
 
   // Texts
   static const double textSizeXS = 14;
@@ -14,6 +15,9 @@ class Dimens {
 
   // Elevation
   static const double defaultCardElevation = 4;
+
+  // Container
+  static const double containerRadius = 5;
 
   // Chart
   static const double chartHeight = 300;

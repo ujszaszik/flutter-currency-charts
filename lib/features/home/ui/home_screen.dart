@@ -1,10 +1,10 @@
 import 'package:currency_charts/features/home/controller/home_controller.dart';
-import 'package:currency_charts/ui/dropdown/bank_dropdown.dart';
-import 'package:currency_charts/ui/dropdown/currency_dropdown.dart';
 import 'package:currency_charts/features/userrates/query/user_rates_query.dart';
 import 'package:currency_charts/navigation/navigation_controller.dart';
 import 'package:currency_charts/resources/dimens.dart';
 import 'package:currency_charts/resources/strings.dart';
+import 'package:currency_charts/ui/button/primary_button.dart';
+import 'package:currency_charts/ui/dropdown/dropdown_generic.dart';
 import 'package:currency_charts/ui/spacing/spaced_column.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -24,6 +24,7 @@ class HomeScreen extends GetView<HomeController> {
               child: SpacedColumn(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.max,
                 spacing: Dimens.doublePadding,
                 elements: [
                   currencySelector(controller),
@@ -35,7 +36,8 @@ class HomeScreen extends GetView<HomeController> {
   }
 
   Widget currencySelector(HomeController controller) {
-    return currencyDropDown(
+    return genericDropdown(
+      title: Strings.currencySelectionTitle,
       currentSelection: controller.currencySelection.value,
       menuItems: controller.getCurrencyMenuItems(),
       onChanged: (newValue) => controller.updateCurrencySelection(newValue),
@@ -43,7 +45,8 @@ class HomeScreen extends GetView<HomeController> {
   }
 
   Widget bankSelector(HomeController controller) {
-    return bankDropDown(
+    return genericDropdown(
+      title: Strings.bankSelectionTitle,
       currentSelection: controller.bankSelection.value,
       menuItems: controller.getBankMenuItems(),
       onChanged: (newValue) => controller.updateBankSelection(newValue),
@@ -51,9 +54,10 @@ class HomeScreen extends GetView<HomeController> {
   }
 
   Widget conversionsButton(HomeController controller) {
-    return OutlinedButton(
+    return primaryButton(
         onPressed: () => _navigateToRates(controller.buildRatesQuery()),
-        child: const Text(Strings.labelShowCurrencyConverts));
+        label: Strings.labelShowCurrencyConverts,
+        topMargin: Dimens.largePadding);
   }
 
   void _navigateToRates(UserRatesQuery query) {

@@ -3,7 +3,8 @@ import 'package:currency_charts/features/charts/controller/charts_controller.dar
 import 'package:currency_charts/navigation/navigation_controller.dart';
 import 'package:currency_charts/resources/dimens.dart';
 import 'package:currency_charts/resources/strings.dart';
-import 'package:currency_charts/ui/dropdown/currency_dropdown.dart';
+import 'package:currency_charts/ui/button/primary_button.dart';
+import 'package:currency_charts/ui/dropdown/dropdown_generic.dart';
 import 'package:currency_charts/ui/spacing/spaced_column.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -33,7 +34,8 @@ class ChartsScreen extends GetView<ChartsController> {
   }
 
   Widget currencySelector(ChartsController controller) {
-    return currencyDropDown(
+    return genericDropdown(
+      title: Strings.currencySelectionTitle,
       currentSelection: controller.currencySelection.value,
       menuItems: controller.getCurrencyMenuItems(),
       onChanged: (newValue) => controller.updateCurrencySelection(newValue),
@@ -41,9 +43,10 @@ class ChartsScreen extends GetView<ChartsController> {
   }
 
   Widget conversionsButton(ChartsController controller) {
-    return OutlinedButton(
+    return primaryButton(
         onPressed: () => _navigateToChart(controller.buildQuery()),
-        child: const Text(Strings.labelShowChartRates));
+        label: Strings.labelShowChartRates,
+        topMargin: Dimens.largePadding);
   }
 
   _navigateToChart(ChartRatesQuery query) {
