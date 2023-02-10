@@ -37,4 +37,15 @@ extension Extreme on ChartsItems {
   double differencePercent() {
     return difference() / current() * 100;
   }
+
+  double median() {
+    final values = items.map((item) => item.value).toList();
+    values.sort((a, b) => a.compareTo(b));
+    var middle = values.length ~/ 2;
+    if (values.length % 2 == 1) {
+      return values[middle];
+    } else {
+      return (values[middle - 1] + values[middle]) / 2.0;
+    }
+  }
 }

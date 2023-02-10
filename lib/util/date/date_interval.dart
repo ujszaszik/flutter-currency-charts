@@ -1,3 +1,4 @@
+import 'package:currency_charts/util/date/date_interval_format.dart';
 import 'package:currency_charts/util/date/date_range.dart';
 
 enum DateInterval {
@@ -16,5 +17,11 @@ enum DateInterval {
 
   String text() {
     return amount.toString() + 'W';
+  }
+}
+
+extension LabelText on DateInterval {
+  String labelText() {
+    return formatInterval(this);
   }
 }

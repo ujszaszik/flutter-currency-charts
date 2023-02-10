@@ -35,4 +35,8 @@ class Strings {
   // Chart Rates
   static const chartRatesQueryTitle = 'MNB középárfolyamok';
   static const labelShowChartRates = 'Mutasd a grafikont!';
+  static const minimumValue = 'MIN';
+  static const maximumValue = 'MAX';
+  static const averageValue = 'AVG';
+  static const medianValue = 'MED';
 }

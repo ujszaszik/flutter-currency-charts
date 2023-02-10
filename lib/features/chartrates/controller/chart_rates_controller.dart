@@ -13,7 +13,7 @@ class ChartRatesController extends GetxController {
   ChartRatesController({required this.repository});
 
   late ChartRatesQuery _currentQuery;
-  final selectedIndex = DateInterval.oneWeek.index.obs;
+  final selectedInterval = DateInterval.oneWeek.obs;
   final chartItems = const AwaitSource<ChartsItems>.empty().obs;
 
   getChartItems(ChartRatesQuery query) {
@@ -34,7 +34,7 @@ class ChartRatesController extends GetxController {
   }
 
   _updateInterval(DateInterval interval) {
-    selectedIndex(interval.index);
+    selectedInterval(interval);
     update();
   }
 }

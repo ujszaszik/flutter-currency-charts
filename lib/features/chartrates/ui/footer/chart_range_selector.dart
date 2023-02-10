@@ -30,7 +30,8 @@ List<ElevatedButton> _generateButtons(
 MaterialStateProperty<RoundedRectangleBorder> _getShape(
     DateInterval interval, int selectedIndex) {
   return MaterialStateProperty.all<RoundedRectangleBorder>(
-      RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)));
+      RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(Dimens.rangeSelectorRadius)));
 }
 
 MaterialStateProperty<Color> _getStateColor(

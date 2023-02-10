@@ -8,9 +8,9 @@ import 'package:flutter/material.dart';
 
 LineChartData chartView(ChartsItems data) {
   return LineChartData(
-    lineTouchData: LineTouchData(enabled: false),
+    lineTouchData: _lineTouchData(),
     gridData: FlGridData(show: false, drawHorizontalLine: false),
-    titlesData: _tilesData(),
+    titlesData: _tilesData(data),
     borderData: FlBorderData(show: false),
     minX: 0,
     maxX: data.size() - 1,
@@ -20,21 +20,19 @@ LineChartData chartView(ChartsItems data) {
   );
 }
 
-FlTitlesData _tilesData() {
+FlTitlesData _tilesData(ChartsItems data) {
   return FlTitlesData(
       show: true,
-      leftTitles: AxisTitles(
-        sideTitles: SideTitles(showTitles: false),
-      ),
-      topTitles: AxisTitles(
-        sideTitles: SideTitles(showTitles: false),
-      ),
-      rightTitles: AxisTitles(
-        sideTitles: SideTitles(showTitles: false),
-      ),
-      bottomTitles: AxisTitles(
-        sideTitles: SideTitles(showTitles: false),
-      ));
+      leftTitles: _emptyTitle(),
+      topTitles: _emptyTitle(),
+      rightTitles: _emptyTitle(),
+      bottomTitles: _emptyTitle());
+}
+
+AxisTitles _emptyTitle() {
+  return AxisTitles(
+    sideTitles: SideTitles(showTitles: false),
+  );
 }
 
 LineChartBarData _chartBarData(List<ChartsData> data) {
@@ -54,6 +52,12 @@ LineChartBarData _chartBarData(List<ChartsData> data) {
       ),
     ),
   );
+}
+
+LineTouchData _lineTouchData() {
+  return LineTouchData(
+      enabled: true,
+      touchTooltipData: LineTouchTooltipData(tooltipBgColor: Colors.blue));
 }
 
 List<FlSpot> _chartSpots(List<ChartsData> data) {

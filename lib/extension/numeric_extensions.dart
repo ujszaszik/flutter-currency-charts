@@ -3,3 +3,9 @@ extension FixedNumber on double {
     return toStringAsFixed(2);
   }
 }
+
+extension IsPositive on double {
+  bool isPositive() {
+    return this > 0.0;
+  }
+}
