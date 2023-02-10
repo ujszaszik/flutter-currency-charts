@@ -12,22 +12,26 @@ Widget bottomNavigationBar(Function(int) onTap, int currentIndex) {
       type: BottomNavigationBarType.fixed,
       backgroundColor: Colors.white,
       elevation: 0,
-      items: const [
-        BottomNavigationBarItem(
-          icon: Icon(Icons.home_filled),
-          label: Strings.menuMain,
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.currency_exchange),
-          label: Strings.menuCurrency,
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.money),
-          label: Strings.menuBank,
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.area_chart),
-          label: Strings.menuChart,
-        ),
-      ]);
+      items: navBarItems());
+}
+
+List<BottomNavigationBarItem> navBarItems() {
+  return const [
+    BottomNavigationBarItem(
+      icon: Icon(Icons.home_filled),
+      label: Strings.menuMain,
+    ),
+    BottomNavigationBarItem(
+      icon: Icon(Icons.currency_exchange),
+      label: Strings.menuCurrency,
+    ),
+    BottomNavigationBarItem(
+      icon: Icon(Icons.money),
+      label: Strings.menuBank,
+    ),
+    BottomNavigationBarItem(
+      icon: Icon(Icons.area_chart),
+      label: Strings.menuChart,
+    )
+  ];
 }
