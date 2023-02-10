@@ -8,7 +8,7 @@ class SizeArea {
 }
 
 class Sizes {
-  static final bankImageSize = SizeArea(width: 50, height: 150);
+  static final bankImageSize = SizeArea.square(width: 50);
   static final dropdownImageSize = SizeArea.square(width: 25);
   static final currencyItemImageSize = SizeArea.square(width: 32);
   static final tableCellHeaderImageSize = SizeArea.square(width: 25);
