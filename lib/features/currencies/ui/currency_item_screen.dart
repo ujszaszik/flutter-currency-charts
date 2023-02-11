@@ -1,4 +1,5 @@
 import 'package:currency_charts/data/model/currency_type.dart';
+import 'package:currency_charts/extension/enum_extensions.dart';
 import 'package:currency_charts/resources/dimens.dart';
 import 'package:currency_charts/resources/sizes.dart';
 import 'package:currency_charts/ui/container/decorated_container.dart';
@@ -23,8 +24,9 @@ Widget currencyItemScreen(
                   name: currency.imageName(),
                   size: Sizes.currencyItemImageSize),
               horizontalSpacer(),
-              Text(currency.name,
-                  style: const TextStyle(fontSize: Dimens.textSizeM))
+              Text(currency.shortName().toUpperCase(),
+                  style: const TextStyle(
+                      fontSize: Dimens.textSizeM, fontWeight: FontWeight.bold))
             ],
           )))));
 }

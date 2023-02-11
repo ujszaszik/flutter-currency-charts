@@ -3,7 +3,6 @@ import 'package:currency_charts/features/home/model/selector_item_model.dart';
 
 enum CurrencyType implements Comparable<CurrencyType> {
   AUD('Ausztrál dollár'),
-  BGN('Bolgár leva'),
   CAD('Kanadai dollár'),
   CHF('Svájci frank'),
   CZK('Cseh korona'),

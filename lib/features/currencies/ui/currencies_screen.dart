@@ -16,7 +16,9 @@ class CurrenciesScreen extends GetView<CurrenciesController> {
   Widget build(BuildContext context) {
     return GetBuilder<CurrenciesController>(
       init: CurrenciesController(),
-      builder: (controller) => ListView.builder(
+      builder: (controller) => GridView.builder(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2, mainAxisExtent: 100),
         padding: const EdgeInsets.all(Dimens.defaultPadding),
         itemCount: controller.currenciesCount,
         itemBuilder: (BuildContext context, int index) {
