@@ -25,8 +25,7 @@ Widget currencyItemScreen(
                   size: Sizes.currencyItemImageSize),
               horizontalSpacer(),
               Text(currency.shortName().toUpperCase(),
-                  style: const TextStyle(
-                      fontSize: Dimens.textSizeM, fontWeight: FontWeight.bold))
+                  style: const TextStyle(fontSize: Dimens.textSizeM))
             ],
           )))));
 }

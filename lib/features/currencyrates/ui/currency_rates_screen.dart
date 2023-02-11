@@ -1,8 +1,11 @@
+import 'package:currency_charts/data/model/currency_type.dart';
+import 'package:currency_charts/extension/enum_extensions.dart';
 import 'package:currency_charts/features/currencyrates/controller/currency_rates_controller.dart';
 import 'package:currency_charts/features/currencyrates/model/currency_rates_model.dart';
 import 'package:currency_charts/features/currencyrates/query/currency_rates_query.dart';
 import 'package:currency_charts/resources/dimens.dart';
 import 'package:currency_charts/resources/strings.dart';
+import 'package:currency_charts/ui/image/image_header.dart';
 import 'package:currency_charts/ui/screen/resource_aware_screen.dart';
 import 'package:currency_charts/ui/table/rates_table.dart';
 import 'package:flutter/material.dart';
@@ -20,17 +23,30 @@ class CurrencyRatesScreen extends GetView<CurrencyRatesController> {
           appBar: AppBar(title: const Text(Strings.currencyRatesQueryTitle)),
           body: ResourceAwareScreen(
               stream: controller.getCurrencyRatesFor(_getQuery()),
-              mainScreen: (data) => _currencyRatesTable(data))),
+              mainScreen: (data) => _currencyRatesContent(data))),
+    );
+  }
+
+  Widget _currencyRatesContent(CurrencyRatesModel model) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        imageHeader(
+            imageName: _getQuery().type.imageName(),
+            imageTitle: _getQuery().type.name),
+        _currencyRatesTable(model)
+      ],
     );
   }
 
   Widget _currencyRatesTable(CurrencyRatesModel model) {
-    return ListView.builder(
-        padding: const EdgeInsets.all(Dimens.defaultPadding),
-        itemCount: model.items.length,
-        itemBuilder: (BuildContext context, int index) {
-          return ratesTable(model.items[index]);
-        });
+    return Expanded(
+        child: ListView.builder(
+            padding: const EdgeInsets.all(Dimens.defaultPadding),
+            itemCount: model.items.length,
+            itemBuilder: (BuildContext context, int index) {
+              return ratesTable(model.items[index]);
+            }));
   }
 
   CurrencyRatesQuery _getQuery() {

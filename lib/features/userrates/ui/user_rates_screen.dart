@@ -1,7 +1,8 @@
+import 'package:currency_charts/data/model/bank.dart';
 import 'package:currency_charts/features/userrates/controller/user_rates_controller.dart';
 import 'package:currency_charts/features/userrates/query/user_rates_query.dart';
-import 'package:currency_charts/features/userrates/ui/user_rates_header.dart';
 import 'package:currency_charts/resources/strings.dart';
+import 'package:currency_charts/ui/image/image_header.dart';
 import 'package:currency_charts/ui/screen/resource_aware_screen.dart';
 import 'package:currency_charts/ui/table/rates_source.dart';
 import 'package:currency_charts/ui/table/rates_table.dart';
@@ -29,7 +30,10 @@ class UserRatesScreen extends GetView<UserRatesController> {
   Widget _userRatesContent(UserRatesQuery query, RatesSource model) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
-      children: [userRatesHeader(getQuery()), ratesTable(model)],
+      children: [
+        imageHeader(imageName: query.bank.imageName()),
+        ratesTable(model)
+      ],
     );
   }
 

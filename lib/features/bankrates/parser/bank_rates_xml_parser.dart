@@ -1,23 +1,25 @@
 import 'dart:collection';
 
+import 'package:currency_charts/data/model/bank.dart';
+import 'package:currency_charts/data/model/currency_type.dart';
 import 'package:currency_charts/data/parser/parser_extensions.dart';
 import 'package:currency_charts/data/parser/xml_parser.dart';
 import 'package:currency_charts/extension/enum_extensions.dart';
+import 'package:currency_charts/features/bankrates/model/bank_rate_model.dart';
 import 'package:currency_charts/features/bankrates/model/banks_currencies_list.dart';
 import 'package:currency_charts/features/bankrates/model/banks_currency_item.dart';
-import 'package:currency_charts/data/model/bank.dart';
-import 'package:currency_charts/data/model/currency_type.dart';
 import 'package:xml/xml.dart';
 
-class BankRatesXmlParser extends XmlParser<BanksCurrenciesList> {
-  final Map<CurrencyType, List<double>> data = SplayTreeMap();
+class BankRatesXmlParser
+    extends ParameterizedXmlParser<BanksCurrenciesList, Bank> {
+  final Map<CurrencyType, BankRateModel> data = SplayTreeMap();
 
   @override
-  BanksCurrenciesList parse(String rawXml) {
+  BanksCurrenciesList parse(String rawXml, Bank parameter) {
     final document = XmlDocument.parse(rawXml);
     _processElements(document);
     final items = _parseItems();
-    return BanksCurrenciesList(bank: Bank.KH, items: items);
+    return BanksCurrenciesList(bank: parameter, items: items);
   }
 
   void _processElements(XmlDocument document) {
@@ -29,7 +31,10 @@ class BankRatesXmlParser extends XmlParser<BanksCurrenciesList> {
     document.currencyElements().forEach((element) {
       final currency = _parseCurrencyType(element);
       if (currency != null) {
-        data[currency] = [element.sell(), element.buy()];
+        final model = BankRateModel.empty()
+          ..sellCurrency = element.sell()
+          ..buyCurrency = element.buy();
+        data[currency] = model;
       }
     });
   }
@@ -38,10 +43,16 @@ class BankRatesXmlParser extends XmlParser<BanksCurrenciesList> {
     document.exchangeElements().forEach((element) {
       final currency = _parseCurrencyType(element);
       if (currency != null) {
-        var newList = data[currency];
-        newList?.addAll([element.sell(), element.buy()]);
-        newList ??= [0.0, 0.0, element.sell(), element.buy()];
-        data[currency] = newList;
+        var existingModel = data[currency];
+        if (existingModel != null) {
+          existingModel
+            ..sellForEx = element.sell()
+            ..buyForEx = element.buy();
+        } else {
+          data[currency] = BankRateModel.empty()
+            ..sellForEx = element.sell()
+            ..buyForEx = element.buy();
+        }
       }
     });
   }
@@ -50,15 +61,19 @@ class BankRatesXmlParser extends XmlParser<BanksCurrenciesList> {
     final items = <BanksCurrencyItem>[];
     data.forEach((key, value) => items.add(BanksCurrencyItem(
         type: key,
-        sellCurrency: value[0],
-        buyCurrency: value[1],
-        sellForEx: value[2],
-        buyForEx: value[3])));
+        sellCurrency: value.sellCurrency,
+        buyCurrency: value.buyCurrency,
+        sellForEx: value.sellForEx,
+        buyForEx: value.buyForEx)));
     return items;
   }
 
   CurrencyType? _parseCurrencyType(XmlElement element) {
-    return CurrencyType.values.firstWhere(
-        (currency) => currency.shortName().toUpperCase() == element.unit());
+    try {
+      return CurrencyType.values.firstWhere(
+          (currency) => currency.shortName().toUpperCase() == element.unit());
+    } catch (e) {
+      return null;
+    }
   }
 }
