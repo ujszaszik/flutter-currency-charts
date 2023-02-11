@@ -12,5 +12,5 @@ class Sizes {
   static final dropdownImageSize = SizeArea.square(width: 25);
   static final currencyItemImageSize = SizeArea.square(width: 32);
   static final tableCellHeaderImageSize = SizeArea.square(width: 25);
-  static final buttonSize = SizeArea(width: 200, height: 48);
+  static final buttonSize = SizeArea(width: 220, height: 48);
 }

@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 
 Widget chartHeader(
     {required ChartsItems data, required DateInterval interval}) {
-  return DefaultPadding(
+  return DoublePadding(
       child: Card(
           elevation: Dimens.defaultCardElevation,
           child: Column(children: [

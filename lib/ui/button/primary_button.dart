@@ -16,6 +16,8 @@ Widget primaryButton(
           child: decoratedContainer(
               color: Colors.blueGrey,
               child: Container(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: Dimens.defaultPadding),
                   height: Sizes.buttonSize.height,
                   width: Sizes.buttonSize.width,
                   color: Colors.blueGrey,
