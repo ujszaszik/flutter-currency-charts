@@ -12,6 +12,6 @@ Widget decoratedContainer({required Widget child, Color color = Colors.white}) {
           ]),
       child: Padding(
           padding: const EdgeInsets.only(
-              left: Dimens.doublePadding, right: Dimens.doublePadding),
+              left: Dimens.halfPadding, right: Dimens.halfPadding),
           child: child));
 }
