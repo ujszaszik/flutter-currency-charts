@@ -11,7 +11,7 @@ enum Bank implements Comparable<Bank> {
   MAGNET("Magnet Bank"),
   MFB("MFB"),
   MKB("MKB"),
-  NHB("NHB"),
+  POLGARI("Polgári Bank"),
   OBERBANK("Oberbank"),
   OTP("OTP Bank"),
   RAIFFEISEN("Raiffeisen Bank"),
