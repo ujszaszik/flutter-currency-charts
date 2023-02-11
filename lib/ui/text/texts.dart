@@ -1,10 +1,10 @@
 import 'package:currency_charts/resources/dimens.dart';
 import 'package:flutter/material.dart';
 
-Text largeText(String text) {
+Text mediumText(String text) {
   return Text(
     text,
-    style: const TextStyle(fontSize: Dimens.textSizeL),
+    style: const TextStyle(fontSize: Dimens.textSizeM),
   );
 }
 
