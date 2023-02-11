@@ -1,4 +1,0 @@
-enum TransactionType {
-  buy,
-  sell;
-}

@@ -14,9 +14,4 @@ class BankRateModel {
     return BankRateModel(
         sellCurrency: 0, buyCurrency: 0, sellForEx: 0, buyForEx: 0);
   }
-
-  @override
-  String toString() {
-    return 'BankRateModel{sellCurrency: $sellCurrency, buyCurrency: $buyCurrency, sellForEx: $sellForEx, buyForEx: $buyForEx}';
-  }
 }

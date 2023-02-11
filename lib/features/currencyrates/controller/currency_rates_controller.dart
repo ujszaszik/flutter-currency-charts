@@ -1,5 +1,5 @@
 import 'package:currency_charts/data/network/resource.dart';
-import 'package:currency_charts/features/currencyrates/model/currency_rates_model.dart';
+import 'package:currency_charts/features/currencyrates/model/currency_rates_item.dart';
 import 'package:currency_charts/features/currencyrates/query/currency_rates_query.dart';
 import 'package:currency_charts/features/currencyrates/repository/currency_rates_repository.dart';
 import 'package:get/get.dart';

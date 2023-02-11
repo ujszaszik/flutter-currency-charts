@@ -43,16 +43,11 @@ class BankRatesXmlParser
     document.exchangeElements().forEach((element) {
       final currency = _parseCurrencyType(element);
       if (currency != null) {
-        var existingModel = data[currency];
-        if (existingModel != null) {
-          existingModel
-            ..sellForEx = element.sell()
-            ..buyForEx = element.buy();
-        } else {
-          data[currency] = BankRateModel.empty()
-            ..sellForEx = element.sell()
-            ..buyForEx = element.buy();
-        }
+        var model = data[currency] ?? BankRateModel.empty();
+        model
+          ..sellForEx = element.sell()
+          ..buyForEx = element.buy();
+        data[currency] = model;
       }
     });
   }

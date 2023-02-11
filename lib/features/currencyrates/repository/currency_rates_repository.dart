@@ -1,6 +1,6 @@
 import 'package:currency_charts/data/network/network_call.dart';
 import 'package:currency_charts/data/network/resource.dart';
-import 'package:currency_charts/features/currencyrates/model/currency_rates_model.dart';
+import 'package:currency_charts/features/currencyrates/model/currency_rates_item.dart';
 import 'package:currency_charts/features/currencyrates/parser/currency_rates_parser.dart';
 import 'package:currency_charts/features/currencyrates/query/currency_rates_query.dart';
 import 'package:currency_charts/features/currencyrates/service/currency_rates_service.dart';

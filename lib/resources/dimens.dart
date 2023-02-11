@@ -19,6 +19,10 @@ class Dimens {
   // Container
   static const double containerRadius = 5;
 
+  // Grid
+  static const int gridCellSize = 2;
+  static const double gridCellHeight = 100;
+
   // Chart
   static const double chartHeight = 300;
   static const double chartWidth = 360;

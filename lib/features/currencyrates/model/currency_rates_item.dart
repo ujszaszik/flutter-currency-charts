@@ -1,6 +1,8 @@
 import 'package:currency_charts/data/model/bank.dart';
 import 'package:currency_charts/ui/table/rates_source.dart';
 
+typedef CurrencyRatesModel = List<CurrencyRatesItem>;
+
 class CurrencyRatesItem extends RatesSource {
   final Bank bankType;
   final double sellCurrency;

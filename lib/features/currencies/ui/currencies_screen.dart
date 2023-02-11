@@ -15,18 +15,22 @@ class CurrenciesScreen extends GetView<CurrenciesController> {
   @override
   Widget build(BuildContext context) {
     return GetBuilder<CurrenciesController>(
-      init: CurrenciesController(),
-      builder: (controller) => GridView.builder(
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2, mainAxisExtent: 100),
-        padding: const EdgeInsets.all(Dimens.defaultPadding),
-        itemCount: controller.currenciesCount,
-        itemBuilder: (BuildContext context, int index) {
-          return currencyItemScreen(
-              currency: controller.getCurrencies()[index],
-              onClick: (currency) => _navigateToCurrencyRates(currency));
-        },
-      ),
+        init: CurrenciesController(),
+        builder: (controller) => _currenciesContent());
+  }
+
+  GridView _currenciesContent() {
+    return GridView.builder(
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: Dimens.gridCellSize,
+          mainAxisExtent: Dimens.gridCellHeight),
+      padding: const EdgeInsets.all(Dimens.defaultPadding),
+      itemCount: controller.currenciesCount,
+      itemBuilder: (BuildContext context, int index) {
+        return currencyItemScreen(
+            currency: controller.getCurrencies()[index],
+            onClick: (currency) => _navigateToCurrencyRates(currency));
+      },
     );
   }
 

@@ -1,8 +1,8 @@
 import 'package:currency_charts/data/network/resource.dart';
 import 'package:http/http.dart' as http;
 
-Stream<Resource<Local>> networkCall<Local>({
-    required Future<http.Response> remoteCall,
+Stream<Resource<Local>> networkCall<Local>(
+    {required Future<http.Response> remoteCall,
     required Local Function(dynamic) mapper}) async* {
   yield Resource.loading();
   try {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-Widget clickableText({ required String text, required Function onClick}) {
-  return InkWell(
+Widget clickableText({required String text, required Function onClick}) {
+  return GestureDetector(
     onTap: () {
       onClick();
     },

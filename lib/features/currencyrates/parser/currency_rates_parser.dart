@@ -1,12 +1,10 @@
 import 'dart:collection';
 
 import 'package:currency_charts/data/model/bank.dart';
-import 'package:currency_charts/data/model/currency_type.dart';
 import 'package:currency_charts/data/parser/parser_extensions.dart';
 import 'package:currency_charts/data/parser/xml_parser.dart';
 import 'package:currency_charts/extension/enum_extensions.dart';
 import 'package:currency_charts/features/currencyrates/model/currency_rates_item.dart';
-import 'package:currency_charts/features/currencyrates/model/currency_rates_model.dart';
 import 'package:xml/xml.dart';
 
 class CurrencyRatesParser extends XmlParser<CurrencyRatesModel> {
@@ -16,8 +14,7 @@ class CurrencyRatesParser extends XmlParser<CurrencyRatesModel> {
   CurrencyRatesModel parse(String rawXml) {
     final document = XmlDocument.parse(rawXml);
     _processElements(document);
-    final items = _parseItems();
-    return CurrencyRatesModel(type: CurrencyType.AUD, items: items);
+    return _parseItems();
   }
 
   void _processElements(XmlDocument document) {

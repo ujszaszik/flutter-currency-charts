@@ -26,9 +26,4 @@ class ChartRatesQuery {
   factory ChartRatesQuery.basic(CurrencyType currencyType) {
     return ChartRatesQuery.inRange(DateRange.basic(), currencyType);
   }
-
-  @override
-  String toString() {
-    return 'ChartRatesQuery{referenceBank: $referenceBank, currencyType: $currencyType, startDate: $startDate, endDate: $endDate}';
-  }
 }

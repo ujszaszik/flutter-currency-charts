@@ -9,7 +9,7 @@ import 'package:currency_charts/features/userrates/ui/user_rates_screen.dart';
 import 'package:get/get.dart';
 
 class NavigationController extends GetxController {
-  void showRatesFor(UserRatesQuery query) {
+  void showUserRatesFor(UserRatesQuery query) {
     Get.toNamed(UserRatesScreen.route,
         arguments: {UserRatesQuery.argsKey: query});
   }

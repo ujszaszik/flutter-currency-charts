@@ -61,6 +61,6 @@ class HomeScreen extends GetView<HomeController> {
   }
 
   void _navigateToRates(UserRatesQuery query) {
-    Get.find<NavigationController>().showRatesFor(query);
+    Get.find<NavigationController>().showUserRatesFor(query);
   }
 }

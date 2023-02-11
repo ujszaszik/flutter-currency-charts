@@ -1,7 +1,6 @@
 import 'package:currency_charts/data/model/currency_type.dart';
-import 'package:currency_charts/extension/enum_extensions.dart';
 import 'package:currency_charts/features/currencyrates/controller/currency_rates_controller.dart';
-import 'package:currency_charts/features/currencyrates/model/currency_rates_model.dart';
+import 'package:currency_charts/features/currencyrates/model/currency_rates_item.dart';
 import 'package:currency_charts/features/currencyrates/query/currency_rates_query.dart';
 import 'package:currency_charts/resources/dimens.dart';
 import 'package:currency_charts/resources/strings.dart';
@@ -43,9 +42,9 @@ class CurrencyRatesScreen extends GetView<CurrencyRatesController> {
     return Expanded(
         child: ListView.builder(
             padding: const EdgeInsets.all(Dimens.defaultPadding),
-            itemCount: model.items.length,
+            itemCount: model.length,
             itemBuilder: (BuildContext context, int index) {
-              return ratesTable(model.items[index]);
+              return ratesTable(model[index]);
             }));
   }
 
