@@ -1,5 +1,3 @@
-
-
 abstract class RatesSource {
   String headerImageName();
 

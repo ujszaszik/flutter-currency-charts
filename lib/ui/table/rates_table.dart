@@ -12,13 +12,12 @@ Widget ratesTable(RatesSource source) {
     margin: const EdgeInsets.all(Dimens.doublePadding),
     padding: const EdgeInsets.all(Dimens.doublePadding),
     child: Table(
-      border: TableBorder.all(
-          color: Colors.grey, style: BorderStyle.solid, width: 1),
       children: [
         _ratesHeaderRow(source.headerImageName()),
-        _ratesDataRow(
+        _ratesDataOddRow(
             Strings.currencyValue, source.currencyBuy(), source.currencySell()),
-        _ratesDataRow(Strings.forExValue, source.forExBuy(), source.forExSell())
+        _ratesDataEvenRow(
+            Strings.forExValue, source.forExBuy(), source.forExSell())
       ],
     ),
   ));
@@ -27,29 +26,51 @@ Widget ratesTable(RatesSource source) {
 TableRow _ratesHeaderRow(String headerImageName) {
   return TableRow(children: [
     _imageHeaderCell(headerImageName),
-    _ratesCell(Strings.buyLabel),
-    _ratesCell(Strings.sellLabel),
+    _ratesEvenCell(Strings.buyLabel),
+    _ratesEvenCell(Strings.sellLabel),
   ]);
 }
 
-TableRow _ratesDataRow(String key, double buy, double sell) {
+TableRow _ratesDataOddRow(String key, double buy, double sell) {
   return TableRow(
-      children: [_ratesCell(key), _ratesCell(buy), _ratesCell(sell)]);
+      decoration: const BoxDecoration(color: Colors.blueGrey),
+      children: [_ratesOddCell(key), _ratesOddCell(buy), _ratesOddCell(sell)]);
 }
 
-Container _ratesCell(dynamic value) {
+Container _ratesOddCell(dynamic value) {
   return Container(
       padding: const EdgeInsets.all(Dimens.defaultPadding),
-      child: Column(children: [
+      child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
         Text(value.toString().replaceUnknownValue(),
-            style: const TextStyle(fontSize: Dimens.textSizeL))
+            style: const TextStyle(
+                fontSize: Dimens.textSizeM, color: Colors.white))
+      ]));
+}
+
+TableRow _ratesDataEvenRow(String key, double buy, double sell) {
+  return TableRow(
+      decoration: const BoxDecoration(color: Colors.white),
+      children: [
+        _ratesEvenCell(key),
+        _ratesEvenCell(buy),
+        _ratesEvenCell(sell)
+      ]);
+}
+
+Container _ratesEvenCell(dynamic value) {
+  return Container(
+      padding: const EdgeInsets.all(Dimens.defaultPadding),
+      child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+        Text(value.toString().replaceUnknownValue(),
+            style: const TextStyle(
+                fontSize: Dimens.textSizeM, color: Colors.blueGrey))
       ]));
 }
 
 Container _imageHeaderCell(String imageName) {
   return Container(
-      padding: const EdgeInsets.all(Dimens.defaultPadding),
-      child: Column(children: [
-        imageAsset(name: imageName, size: Sizes.tableCellHeaderImageSize)
+      padding: const EdgeInsets.all(Dimens.halfPadding),
+      child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+        imageAsset(name: imageName, size: Sizes.tableCellHeaderImageSize),
       ]));
 }
